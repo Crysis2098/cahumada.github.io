@@ -161,7 +161,8 @@ h6 {
 }
 
 #header.header-top .social-links,
-#header.header-top h2 {
+#header.header-top h2,
+#header.header-top .quotes {
   display: none;
 }
 
@@ -364,6 +365,7 @@ section.section-show {
 section .container {
   background: rgba(0, 0, 0, 0.9);
   padding: 30px;
+  border-radius: 6px;
 }
 
 @media (max-width: 768px) {
@@ -373,6 +375,11 @@ section .container {
 
   section.section-show {
     top: 80px;
+  }
+
+  section .container {
+    width: calc(100% - 24px);
+    padding: 22px 18px;
   }
 }
 
@@ -1201,16 +1208,30 @@ section .container {
   line-height: 1;
   border: 2px solid #ffffffba; /* Agrega un borde sólido */
   border-radius: 6px; /* Ajusta el radio de las esquinas según tus preferencias */
-  width: 300px; /* Ajusta el ancho según tus preferencias */
-  height: 110px; /* Ajusta la altura según tus preferencias */
-  padding-top: 20px; /* Ajusta el valor del espaciado superior según tus preferencias */
+  width: min(100%, 430px);
+  min-height: 110px;
+  padding: 18px 20px;
+  overflow: hidden;
+}
+
+#header.header-top .quotes {
+  display: none;
 }
 
 
 
 .quotes p {
   font-size: 16px;
+  line-height: 1.5;
   text-align: center;
+  margin: 0;
+}
+
+.quotes p span {
+  display: block;
+  margin-top: 8px;
+  font-size: 14px;
+  opacity: 0.85;
 }
 
 .quotes:hover {
@@ -1221,4 +1242,77 @@ section .container {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+
+/* Ajustes de responsividad conservando el diseño original */
+@media (max-width: 992px) {
+  #header {
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  #header.header-top {
+    overflow: visible;
+  }
+
+  #header.header-top .container {
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 60px;
+  }
+
+  #header.header-top .navbar {
+    margin-left: auto;
+  }
+
+  .quotes {
+    margin-top: 28px;
+    width: min(100%, 520px);
+  }
+}
+
+@media (max-width: 576px) {
+  #header h1 {
+    font-size: 30px;
+    line-height: 1.2;
+  }
+
+  #header h2 {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  #header h2 span {
+    display: inline;
+    padding-bottom: 3px;
+  }
+
+  #header.header-top h1 {
+    max-width: calc(100% - 56px);
+    font-size: 20px;
+    line-height: 1.2;
+    text-align: left;
+  }
+
+  .quotes {
+    width: 100%;
+    min-height: auto;
+    padding: 16px;
+  }
+
+  .quotes p {
+    font-size: 14px;
+  }
+
+  .section-title p {
+    font-size: 26px;
+    line-height: 1.2;
+  }
+
+  .about-me .content ul li {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
 }
